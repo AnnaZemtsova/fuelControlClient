@@ -1,0 +1,9 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput [(ngModel)]="newVin" name="vin" placeholder="Enter vin number">
+  </mat-form-field>
+  <button mat-button (click)="addVin()">Add</button>
+  <div *ngFor="let vin of vinsPromise|async">
+    <app-vin [vin]="vin"></app-vin>
+  </div>
+</form>

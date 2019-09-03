@@ -1,0 +1,34 @@
+<div class="content-wrap" igxLayout>
+  <igx-nav-drawer id="navigation" [pin]="false" [pinThreshold]="0">
+    <ng-template igxDrawer>
+      <span igxDrawerItem [isHeader]="true" > Menu
+        <span igxButton="icon" style=" margin-left: 150px" igxToggleAction="navigation">
+      <igx-icon fontSet="material" color="" >menu</igx-icon>
+      </span>
+    </span>
+      <span igxDrawerItem igxRipple (click)="statistic()">
+           <i class="fas fa-chart-line" style="margin-right: 10px"></i>
+            <span >Statistic</span>
+        </span>
+      <span igxDrawerItem igxRipple (click)="chart()">
+           <i class="fas fa-chart-bar" style="margin-right: 10px"></i>
+            <span >Graphic</span>
+        </span>
+    </ng-template>
+    <ng-template igxDrawerMini>
+      <div class="burger">
+     <span igxButton="icon" igxToggleAction="navigation" >
+      <igx-icon  fontSet="material">menu</igx-icon>
+    </span>
+      </div>
+    </ng-template>
+  </igx-nav-drawer>
+
+  <main igxFlex >
+    <mat-grid-list *ngIf="statisticOpen" cols="2" rowHeight="1:1">
+      <mat-grid-tile><app-vins class="vins"></app-vins></mat-grid-tile>
+      <mat-grid-tile><app-statistic class="statistic"></app-statistic></mat-grid-tile>
+    </mat-grid-list>
+    <app-chart  *ngIf="chartOpen"></app-chart>
+  </main>
+</div>

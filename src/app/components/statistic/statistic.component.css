@@ -1,0 +1,8 @@
+.button-statictic{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+button{
+  font-size: 20pt;
+}

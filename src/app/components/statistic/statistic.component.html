@@ -1,0 +1,7 @@
+<div class="button-statictic">
+  <button mat-button [disabled]="true">Statistic</button></div>
+   <div *ngFor="let vin of vins">
+  <mat-card><label>{{vin.name}}</label>
+  <mat-progress-bar mode="determinate" [value]="vin.fuel"></mat-progress-bar>
+  </mat-card>
+</div>
