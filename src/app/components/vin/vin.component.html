@@ -1,9 +1,10 @@
  <mat-card>
   <mat-checkbox class="checkbox"></mat-checkbox>
-    <label>{{vin.vinNumber}}</label>
+    <label *ngIf="!isEdit">{{vin.vinNumber}}</label>
+    <input *ngIf="isEdit"  name ="vin" [(ngModel)] = "vin.vinNumber">
     <span>
-    <i class="fas fa-times delete"></i>
-    <i class="fas fa-pen edit"></i>
+    <i class="fas fa-times delete" (click)="delete()"></i>
+    <i class="fas fa-pen edit" (click)="edit()"></i>
     </span>
   </mat-card>
 

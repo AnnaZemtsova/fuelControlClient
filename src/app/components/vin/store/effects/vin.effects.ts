@@ -27,9 +27,11 @@ export class VinEffects {
   deleteItem = this.actions.pipe(
     ofType(VinActionsConsts.VinRemove.Request),
     switchMap((item: any) => {
-      return this.rest.delete('/vins?id=' + item.payload.id);
+      console.log(item);
+      return this.rest.delete('/vins/' + item.payload);
     }),
     map((resData: any) => {
+      console.log(resData);
       return  VinActions.VinRemove.Success({id: resData.data});
     }),
     catchError(() => {
@@ -41,7 +43,6 @@ export class VinEffects {
   addItem = this.actions.pipe(
     ofType(VinActionsConsts.VinAdd.Request),
     switchMap((item: any) => {
-      console.log(item.payload);
       return this.rest.post('/vins', item.payload);
     }),
     map((resData: any) => {
